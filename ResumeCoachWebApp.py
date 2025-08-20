@@ -5,7 +5,6 @@ import os
 st.title("Resume Coach Web Application")
 st.write("Hello, My name is Srinivasa Yanaparti")
 
-os.environ["OPENAI_API_KEY"] = "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"
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def process_text(text):
