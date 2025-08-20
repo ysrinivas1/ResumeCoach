@@ -24,10 +24,10 @@ if st.button("Generate Coaching Report"):
     st.write(coaching_report)
 
 
-resume_question_input = st.text_input("If you have any question? Enter your question here")
+resume_question_input = st.text_input("If you have any question? Enter Here")
 if st.button("Click for Answer"):
-    coaching_report = process_text(resume_input)
-    st.write("Coaching Report:")
+    coaching_report = process_text(resume_question_input)
+    st.write("Q:")
     st.write(coaching_report)
 
 
