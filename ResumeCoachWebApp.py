@@ -20,7 +20,7 @@ if st.button("Get LLM Response"):
     if user_input:
         # Replace with your specific LLM API call
         # Example using OpenAI ChatCompletion:
-        chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": text_input}])
+        chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": user_input}])
         llm_response = chat_completion.choices[0].message.content
 
         st.write("LLM Response:")
