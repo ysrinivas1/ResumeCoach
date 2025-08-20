@@ -1,4 +1,5 @@
 import streamlit as st
+import openai
 
 st.title("Resume Coach Web Application")
 st.write("Hello, My name is Srinivasa Yanaparti")
