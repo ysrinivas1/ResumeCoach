@@ -10,11 +10,11 @@ def process_text(text):
     return text.upper()
 
 #st.title("Text Processing App")
-text_input = st.text_area("Enter your Resume in text format")
+#text_input = st.text_area("Enter your Resume in text format")
 user_input = st.text_input("Enter your text for the LLM:")
 
 if st.button("Process Text"):
-    processed_text = process_text(text_input)
+    processed_text = process_text(user_input)
     st.write("Processed Text:")
     st.write(processed_text)
 
