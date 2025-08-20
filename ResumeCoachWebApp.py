@@ -23,7 +23,7 @@ if st.button("Generate Coaching Report"):
     st.write("Coaching Report:")
     st.write(coaching_report)
 
-if st.button("Do you have any question?")
+if st.button("Do you have any question?"):
     coaching_report = process_text(resume_input)
     st.write("Coaching Report:")
     st.write(coaching_report)
