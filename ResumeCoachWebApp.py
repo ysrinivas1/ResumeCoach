@@ -23,8 +23,6 @@ if st.button("Process Text"):
 
 if st.button("Get LLM Response"):
     if user_input:
-        # Replace with your specific LLM API call
-        # Example using OpenAI ChatCompletion:
         response = openai.chat.completions.create(
             model="gpt-4",  # Specify the GPT-4 model
             messages=messages,
