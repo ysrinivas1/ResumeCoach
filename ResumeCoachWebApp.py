@@ -1,8 +1,12 @@
 import streamlit as st
 import openai
+import os
 
 st.title("Resume Coach Web Application")
 st.write("Hello, My name is Srinivasa Yanaparti")
+
+os.environ["OPENAI_API_KEY"] = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def process_text(text):
     # Add your text processing logic here
@@ -22,8 +26,16 @@ if st.button("Get LLM Response"):
     if user_input:
         # Replace with your specific LLM API call
         # Example using OpenAI ChatCompletion:
-        chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": user_input}])
-        llm_response = chat_completion.choices[0].message.content
+        response = openai.chat.completions.create(
+            model="gpt-4",  # Specify the GPT-4 model
+            messages=messages,
+            temperature=0.7,  # Adjust creativity (0.0 to 1.0)
+            max_tokens=150,   # Set the maximum number of tokens in the response
+            frequency_penalty=0.0 # Adjust repetition
+        )
+#        chat_completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=[{"role": "user", "content": user_input}])
+#        llm_response = chat_completion.choices[0].message.content
+        llm_response = response.choices[0].message.content
 
         st.write("LLM Response:")
         st.write(llm_response)
