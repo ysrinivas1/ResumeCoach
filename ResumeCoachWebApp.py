@@ -16,17 +16,17 @@ def process_text(text):
 #text_input = st.text_area("Enter your Resume in text format")
 resume_input = st.text_area("Enter your Resume in text format")
 job_posting_input = st.text_area("Enter your job posting")
-user_input = st.text_input("Enter your text for the LLM:")
+# user_input = st.text_input("Enter your text for the LLM:")
 
 if st.button("Generate Coaching Report"):
     coaching_report = process_text(resume_input)
     st.write("Coaching Report:")
     st.write(coaching_report)
 
-if st.button("Process Text"):
-    processed_text = process_text(user_input)
-    st.write("Processed Text:")
-    st.write(processed_text)
+# if st.button("Process Text"):
+#     processed_text = process_text(user_input)
+#     st.write("Processed Text:")
+#     st.write(processed_text)
 
 # if st.button("Get LLM Response"):
 #     if user_input:
