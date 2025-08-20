@@ -23,6 +23,13 @@ if st.button("Generate Coaching Report"):
     st.write("Coaching Report:")
     st.write(coaching_report)
 
+if st.button("Do you have any question?")
+    coaching_report = process_text(resume_input)
+    st.write("Coaching Report:")
+    st.write(coaching_report)
+resume_question_input = st.text_area("Enter your question")
+
+
 # if st.button("Process Text"):
 #     processed_text = process_text(user_input)
 #     st.write("Processed Text:")
