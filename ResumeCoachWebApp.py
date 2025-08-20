@@ -10,6 +10,7 @@ def process_text(text):
 
 #st.title("Text Processing App")
 text_input = st.text_area("Enter your Resume in text format")
+user_input = st.text_input("Enter your text for the LLM:")
 
 if st.button("Process Text"):
     processed_text = process_text(text_input)
