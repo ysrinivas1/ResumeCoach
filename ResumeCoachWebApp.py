@@ -18,7 +18,7 @@ resume_input = st.text_area("Enter your Resume in text format")
 job_posting_input = st.text_area("Enter your job posting")
 # user_input = st.text_input("Enter your text for the LLM:")
 
-if st.button("Generate Coaching Report"):
+if st.button("Generate Resume Coaching Report"):
     coaching_report = process_text(resume_input)
     st.write("Coaching Report:")
     st.write(coaching_report)
