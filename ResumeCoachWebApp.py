@@ -42,6 +42,7 @@ summary_prompt = PromptTemplate(
 
 summary_chain = LLMChain(llm=llm, prompt=summary_prompt)
 resume_summary_response = summary_chain.run(resume_input)
+job_posting_summary_response = summary_chain.run(job_posting_input)
 
 
 if st.button("Generate Resume Coaching"):
@@ -59,6 +60,10 @@ if st.button("Click for Answer"):
 if st.button("resume summary"):
     st.write("Resume Summary:")
     st.write(resume_summary_response)
+
+if st.button("Job Posting Summary"):
+    st.write("Job Posting Summary:")
+    st.write(job_posting_summary_response)
 
 # if st.button("Process Text"):
 #     processed_text = process_text(user_input)
