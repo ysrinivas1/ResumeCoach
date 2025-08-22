@@ -46,7 +46,7 @@ job_posting_summary_response = summary_chain.run(job_posting_input)
 
 resume_coach_prompt = PromptTemplate(
     input_variables=["topic", "job_posting_summary_response"],
-    template="Review the provided resume : {topic} and the job description: {job_posting_summary_response}. is this resume best fit for the job description answer in yes or no?"
+    template="Review the provided resume : {topic} and the job description: {job_posting_summary_response}. is this resume matched 50 percent for job description answer is yes it not no?"
 )
 
 resume_coach_chain = LLMChain(llm=llm, prompt=resume_coach_prompt)
