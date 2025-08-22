@@ -44,6 +44,13 @@ summary_chain = LLMChain(llm=llm, prompt=summary_prompt)
 resume_summary_response = summary_chain.run(resume_input)
 job_posting_summary_response = summary_chain.run(job_posting_input)
 
+resume_coach_prompt = PromptTemplate(
+    input_variables=["topic", "job_posting_summary_response"],
+    template="Review the provided resume : {topic} and the job description: {job_posting_summary_response}. is this resume best fit for the job description ?"
+)
+
+resume_coach_chain = LLMChain(llm=llm, prompt=resume_coach_prompt)
+resume_coach_response = resume_coach_chain.run(resume_input)
 
 if st.button("Generate Resume Coaching"):
     coaching_report = process_text(resume_input)
@@ -57,13 +64,17 @@ if st.button("Click for Answer"):
     st.write(f"Q:{resume_question_input}")
     st.write(ans_report)
 
-if st.button("resume summary"):
-    st.write("Resume Summary:")
-    st.write(resume_summary_response)
+# if st.button("resume summary"):
+#     st.write("Resume Summary:")
+#     st.write(resume_summary_response)
 
-if st.button("Job Posting Summary"):
-    st.write("Job Posting Summary:")
-    st.write(job_posting_summary_response)
+# if st.button("Job Posting Summary"):
+#     st.write("Job Posting Summary:")
+#     st.write(job_posting_summary_response)
+
+if st.button("Resume Coaching"):
+    st.write("Resume Coaching:")
+    st.write(resume_coach_response)
 
 # if st.button("Process Text"):
 #     processed_text = process_text(user_input)
