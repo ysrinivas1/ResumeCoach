@@ -73,8 +73,8 @@ if st.button("Click for Answer"):
 #     st.write("Job Posting Summary:")
 #     st.write(job_posting_summary_response)
 
-if st.button("Resume Coaching"):
-    st.write("Resume Coaching:")
+if st.button("Resume Advice"):
+    st.write("Resume Advice:")
     st.write(resume_coach_response)
 
 # if st.button("Process Text"):
