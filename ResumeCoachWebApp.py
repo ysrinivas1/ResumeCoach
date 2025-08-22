@@ -9,7 +9,7 @@ st.title("Resume Coach Web Application")
 st.write("Hello, Srinivasa Yanaparti")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-llm = ChatOpenAI(model_name="gpt-4", temperature=0.7)
+llm = ChatOpenAI(model_name="gpt-4", temperature=0.5)
 
 def process_text(text):
     # Add your text processing logic here
