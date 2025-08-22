@@ -18,6 +18,11 @@ resume_input = st.text_area("Enter your Resume in text format")
 job_posting_input = st.text_area("Enter your job posting")
 # user_input = st.text_input("Enter your text for the LLM:")
 
+def summarize_resume(resume):
+    # Add your text processing logic here
+    # For example, let's convert text to uppercase
+    return resume.upper()
+
 if st.button("Generate Resume Coaching"):
     coaching_report = process_text(resume_input)
     st.write("Coaching Report:")
@@ -30,6 +35,10 @@ if st.button("Click for Answer"):
     st.write(f"Q:{resume_question_input}")
     st.write(ans_report)
 
+if st.button("resume summary"):
+    resume_summary = summarize_resume(resume_input)
+    st.write("Resume Summary:")
+    st.write(resume_summary)
 
 # if st.button("Process Text"):
 #     processed_text = process_text(user_input)
