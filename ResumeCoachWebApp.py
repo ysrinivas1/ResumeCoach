@@ -22,18 +22,27 @@ resume_input = st.text_area("Enter your Resume in text format")
 job_posting_input = st.text_area("Enter your job posting")
 # user_input = st.text_input("Enter your text for the LLM:")
 
-def summarize_resume(resume_text):
-    # Add your text processing logic here
-    # For example, let's convert text to uppercase
-    resume_summary_prompt = PromptTemplate(
-    input_variables=["topic"],
-    template="Your task is to provide 10  line summary of : {topic}"
-    )
+# def summarize_resume(resume_text):
+#     # Add your text processing logic here
+#     # For example, let's convert text to uppercase
+#     resume_summary_prompt = PromptTemplate(
+#     input_variables=["topic"],
+#     template="Your task is to provide 10  line summary of : {topic}"
+#     )
 
-    resume_summary_chain = LLMChain(llm=llm, prompt=resume_summary_prompt)
-    resume_summary_response = resume_summary_chain.run(resume_text)
+#     resume_summary_chain = LLMChain(llm=llm, prompt=resume_summary_prompt)
+#     resume_summary_response = resume_summary_chain.run(resume_text)
 
-    return resume_summary_response
+#     return resume_summary_response
+
+summary_prompt = PromptTemplate(
+     input_variables=["topic"],
+     template="Your task is to provide 10  line summary of : {topic}"
+)
+
+summary_chain = LLMChain(llm=llm, prompt=summary_prompt)
+resume_summary_response = summary_chain.run(resume_input)
+
 
 if st.button("Generate Resume Coaching"):
     coaching_report = process_text(resume_input)
@@ -48,9 +57,8 @@ if st.button("Click for Answer"):
     st.write(ans_report)
 
 if st.button("resume summary"):
-    resume_summary = summarize_resume(resume_input)
     st.write("Resume Summary:")
-    st.write(resume_summary)
+    st.write(resume_summary_response)
 
 # if st.button("Process Text"):
 #     processed_text = process_text(user_input)
