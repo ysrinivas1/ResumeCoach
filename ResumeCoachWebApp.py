@@ -1,4 +1,7 @@
 import streamlit as st
+from langchain_openai import ChatOpenAI
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
 import openai
 import os
 
@@ -6,6 +9,7 @@ st.title("Resume Coach Web Application")
 st.write("Hello, Srinivasa Yanaparti")
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
+llm = ChatOpenAI(model_name="gpt-4", temperature=0.7)
 
 def process_text(text):
     # Add your text processing logic here
@@ -18,10 +22,18 @@ resume_input = st.text_area("Enter your Resume in text format")
 job_posting_input = st.text_area("Enter your job posting")
 # user_input = st.text_input("Enter your text for the LLM:")
 
-def summarize_resume(resume):
+def summarize_resume(resume_text):
     # Add your text processing logic here
     # For example, let's convert text to uppercase
-    return resume.upper()
+    resume_summary_prompt = PromptTemplate(
+    input_variables=["topic"],
+    template="Your task is to provide 10  line summary of : {topic}"
+    )
+
+    resume_summary_chain = LLMChain(llm=llm, prompt=resume_summary_prompt)
+    resume_summary_response = resume_summary_chain.run(resume_text)
+
+    return resume_summary_response
 
 if st.button("Generate Resume Coaching"):
     coaching_report = process_text(resume_input)
