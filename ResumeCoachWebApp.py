@@ -51,7 +51,7 @@ resume_coach_prompt = PromptTemplate(
 
 resume_coach_chain = LLMChain(llm=llm, prompt=resume_coach_prompt)
 # resume_coach_response = resume_coach_chain.run(resume_input)
-resume_coach_response = resume_coach_chain.invoke({"topic": resume_summary_response, "job_posting_summary_response": job_posting_summary_response})
+resume_coach_response = resume_coach_chain.run({"topic": resume_summary_response, "job_posting_summary_response": job_posting_summary_response})
 
 if st.button("Generate Resume Coaching"):
     coaching_report = process_text(resume_input)
